@@ -15,6 +15,7 @@ double sine(double angle);
 double cosine(double angle);
 double tangent(double angle);
 double logarithm(double a);
+long long factorial(int n);
 
 int main() {
     
@@ -35,6 +36,7 @@ int main() {
         cout << "8. Cosine\n";
         cout << "9. Tangent\n";
         cout << "10. Logarithm (base 10)\n";
+        cout << "11. Factorial\n"; 
         cout << "0. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
@@ -99,6 +101,16 @@ int main() {
                 cin >> num1;
                 result = logarithm(num1);
                 cout << "Result: " << result << endl;
+                break;
+            case 11:  // New case for factorial
+                int n;
+                cout << "Enter a non-negative integer: ";
+                cin >> n;
+                if (n < 0) {
+                    cout << "Error: Factorial is not defined for negative numbers!" << endl;
+                } else {
+                    cout << "Result: " << factorial(n) << endl;
+                }
                 break;
             case 0:
                 cout << "Exiting...\n";
@@ -166,3 +178,13 @@ double logarithm(double a) {
         return 0;
     }
 }
+
+long long factorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+
+

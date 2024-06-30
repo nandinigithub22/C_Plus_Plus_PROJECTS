@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+#include <vector>
 
 using namespace std;
 
@@ -16,15 +17,17 @@ double cosine(double angle);
 double tangent(double angle);
 double logarithm(double a);
 long long factorial(int n);
+void decimalToBinary(int n);
+int main()
+{
 
-int main() {
-    
     int choice;
     double num1, num2, result;
 
-    cout << fixed << setprecision(4);  // Set output precision
-    cout << "Welcome to my calculator "<< endl;
-    do {
+    cout << fixed << setprecision(4); // Set output precision
+    cout << "Welcome to my calculator " << endl;
+    do
+    {
         cout << "\nScientific Calculator\n";
         cout << "1. Addition\n";
         cout << "2. Subtraction\n";
@@ -36,155 +39,202 @@ int main() {
         cout << "8. Cosine\n";
         cout << "9. Tangent\n";
         cout << "10. Logarithm (base 10)\n";
-        cout << "11. Factorial\n"; 
+        cout << "11. Factorial\n";
+        cout << "12. Decimal To Binary\n";
         cout << "0. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
-        switch(choice) {
-            case 1:
-                cout << "Enter two numbers: ";
-                cin >> num1 >> num2;
-                result = add(num1, num2);
-                cout << "Result: " << result << endl;
-                break;
-            case 2:
-                cout << "Enter two numbers: ";
-                cin >> num1 >> num2;
-                result = subtract(num1, num2);
-                cout << "Result: " << result << endl;
-                break;
-            case 3:
-                cout << "Enter two numbers: ";
-                cin >> num1 >> num2;
-                result = multiply(num1, num2);
-                cout << "Result: " << result << endl;
-                break;
-            case 4:
-                cout << "Enter two numbers: ";
-                cin >> num1 >> num2;
-                result = divide(num1, num2);
-                cout << "Result: " << result << endl;
-                break;
-            case 5:
-                cout << "Enter base and exponent: ";
-                cin >> num1 >> num2;
-                result = power(num1, num2);
-                cout << "Result: " << result << endl;
-                break;
-            case 6:
-                cout << "Enter a number: ";
-                cin >> num1;
-                result = squareRoot(num1);
-                cout << "Result: " << result << endl;
-                break;
-            case 7:
-                cout << "Enter angle in radians: ";
-                cin >> num1;
-                result = sine(num1);
-                cout << "Result: " << result << endl;
-                break;
-            case 8:
-                cout << "Enter angle in radians: ";
-                cin >> num1;
-                result = cosine(num1);
-                cout << "Result: " << result << endl;
-                break;
-            case 9:
-                cout << "Enter angle in radians: ";
-                cin >> num1;
-                result = tangent(num1);
-                cout << "Result: " << result << endl;
-                break;
-            case 10:
-                cout << "Enter a number: ";
-                cin >> num1;
-                result = logarithm(num1);
-                cout << "Result: " << result << endl;
-                break;
-            case 11:  // New case for factorial
-                int n;
-                cout << "Enter a non-negative integer: ";
-                cin >> n;
-                if (n < 0) {
-                    cout << "Error: Factorial is not defined for negative numbers!" << endl;
-                } else {
-                    cout << "Result: " << factorial(n) << endl;
-                }
-                break;
-            case 0:
-                cout << "Exiting...\n";
-                break;
-            default:
-                cout << "Invalid choice. Please try again.\n";
+        switch (choice)
+        {
+        case 1:
+            cout << "Enter two numbers: ";
+            cin >> num1 >> num2;
+            result = add(num1, num2);
+            cout << "Result: " << result << endl;
+            break;
+        case 2:
+            cout << "Enter two numbers: ";
+            cin >> num1 >> num2;
+            result = subtract(num1, num2);
+            cout << "Result: " << result << endl;
+            break;
+        case 3:
+            cout << "Enter two numbers: ";
+            cin >> num1 >> num2;
+            result = multiply(num1, num2);
+            cout << "Result: " << result << endl;
+            break;
+        case 4:
+            cout << "Enter two numbers: ";
+            cin >> num1 >> num2;
+            result = divide(num1, num2);
+            cout << "Result: " << result << endl;
+            break;
+        case 5:
+            cout << "Enter base and exponent: ";
+            cin >> num1 >> num2;
+            result = power(num1, num2);
+            cout << "Result: " << result << endl;
+            break;
+        case 6:
+            cout << "Enter a number: ";
+            cin >> num1;
+            result = squareRoot(num1);
+            cout << "Result: " << result << endl;
+            break;
+        case 7:
+            cout << "Enter angle in radians: ";
+            cin >> num1;
+            result = sine(num1);
+            cout << "Result: " << result << endl;
+            break;
+        case 8:
+            cout << "Enter angle in radians: ";
+            cin >> num1;
+            result = cosine(num1);
+            cout << "Result: " << result << endl;
+            break;
+        case 9:
+            cout << "Enter angle in radians: ";
+            cin >> num1;
+            result = tangent(num1);
+            cout << "Result: " << result << endl;
+            break;
+        case 10:
+            cout << "Enter a number: ";
+            cin >> num1;
+            result = logarithm(num1);
+            cout << "Result: " << result << endl;
+            break;
+        case 11: // New case for factorial
+            int n;
+            cout << "Enter a non-negative integer: ";
+            cin >> n;
+            if (n < 0)
+            {
+                cout << "Error: Factorial is not defined for negative numbers!" << endl;
+            }
+            else
+            {
+                cout << "Result: " << factorial(n) << endl;
+            }
+            break;
+        case 12:
+            int nn;
+            cout << "Enter a Decimal Number: ";
+            cin >> nn;
+            decimalToBinary(nn);
+            cout << endl;
+            break;
+
+        case 0:
+            cout << "Exiting...\n";
+            break;
+        default:
+            cout << "Invalid choice. Please try again.\n";
         }
-    } while(choice != 0);
+    } while (choice != 0);
 
     return 0;
 }
 
 // Function definitions
-double add(double a, double b) {
+double add(double a, double b)
+{
     return a + b;
 }
 
-double subtract(double a, double b) {
+double subtract(double a, double b)
+{
     return a - b;
 }
 
-double multiply(double a, double b) {
+double multiply(double a, double b)
+{
     return a * b;
 }
 
-double divide(double a, double b) {
-    if (b != 0) {
+double divide(double a, double b)
+{
+    if (b != 0)
+    {
         return a / b;
-    } else {
+    }
+    else
+    {
         cout << "Error: Division by zero!" << endl;
         return 0;
     }
 }
 
-double power(double base, double exponent) {
+double power(double base, double exponent)
+{
     return pow(base, exponent);
 }
 
-double squareRoot(double a) {
-    if (a >= 0) {
+double squareRoot(double a)
+{
+    if (a >= 0)
+    {
         return sqrt(a);
-    } else {
+    }
+    else
+    {
         cout << "Error: Cannot calculate square root of a negative number!" << endl;
         return 0;
     }
 }
 
-double sine(double angle) {
+double sine(double angle)
+{
     return sin(angle);
 }
 
-double cosine(double angle) {
+double cosine(double angle)
+{
     return cos(angle);
 }
 
-double tangent(double angle) {
+double tangent(double angle)
+{
     return tan(angle);
 }
 
-double logarithm(double a) {
-    if (a > 0) {
+double logarithm(double a)
+{
+    if (a > 0)
+    {
         return log10(a);
-    } else {
+    }
+    else
+    {
         cout << "Error: Cannot calculate logarithm of a non-positive number!" << endl;
         return 0;
     }
 }
 
-long long factorial(int n) {
-    if (n == 0 || n == 1) {
+long long factorial(int n)
+{
+    if (n == 0 || n == 1)
+    {
         return 1;
     }
     return n * factorial(n - 1);
 }
 
+void decimalToBinary(int n)
+{
+    std::vector<int> binaryNum;
 
+    // Storing binary number in a vector
+    while (n > 0)
+    {
+        binaryNum.push_back(n % 2);
+        n = n / 2;
+    }
 
+    // Printing the binary number in reverse order
+    for (int i = binaryNum.size() - 1; i >= 0; i--)
+        std::cout << binaryNum[i];
+}

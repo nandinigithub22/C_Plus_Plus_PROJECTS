@@ -71,7 +71,7 @@ int main() {
 
     while (true) {
         printBoard();
-        cout << "Player " << currentPlayer << ", enter your move (row and column): ";
+        cout << "Player " << currentPlayer << ", Enter your move (row and column): ";
         cin >> row >> col;
 
         makeMove(row, col);
@@ -84,7 +84,7 @@ int main() {
 
         if (isBoardFull()) {
             printBoard();
-            cout << "The game is a draw!\n";
+            cout << "The game is a draww !\n";
             break;
         }
 

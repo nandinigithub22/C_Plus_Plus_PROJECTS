@@ -83,7 +83,7 @@ int main() {
         cout << "\nLibrary Management System\n";
         cout << "1. Add Book\n";
         cout << "2. Delete Book\n";
-        cout << "3. Display All Books\n";
+        cout << "3. Display All Books \n";
         cout << "4. Search Book by Title\n";
         cout << "5. Exit\n";
         cout << "Enter your choice: ";

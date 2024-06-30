@@ -8,7 +8,8 @@ void showMenu() {
     cout << "1. Burger - $5.99" << endl;
     cout << "2. Pizza - $8.99" << endl;
     cout << "3. Salad - $4.99" << endl;
-    cout << "4. Exit" << endl;
+    cout << "4. Hotdog - $5.59" << endl;
+    cout << "5. Exit" << endl;
 }
 
 int main() {
@@ -37,6 +38,9 @@ int main() {
                 cout << "You ordered a Salad. That will be $4.99." << endl;
                 break;
             case 4:
+                cout << "You ordered a Hotdog. That will be $5.59." << endl;
+                return 0;
+            case 5:
                 cout << "Thank you for visiting! Have a great day!" << endl;
                 return 0;
             default:

@@ -20,7 +20,10 @@ public:
     }
 
     void display() const {
-        cout << "ID: " << id << ", Title: " << title << ", Author: " << author << ", Year: " << year << endl;
+        cout << "ID: " << id << ;
+        cout<< "Title: " << title ;
+        cout<<"Author: " << author;
+        cout<< "Year: " << year << endl;
     }
 };
 

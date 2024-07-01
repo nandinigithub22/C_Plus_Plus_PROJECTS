@@ -71,6 +71,9 @@ int main() {
          << right << setw(10) << "Quantity"
          << right << setw(10) << "Price"
          << right << setw(10) << "Total\n";
+//left: A manipulator that sets the output to be left-aligned. It affects how the next values will be aligned in their respective fields.
+//right: A manipulator that sets the output to be right-aligned. It affects how the next values will be aligned in their respective fields.
+
 
     for (const auto& item : cart) {
         double itemTotal = item.price * item.quantity;

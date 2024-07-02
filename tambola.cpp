@@ -39,6 +39,7 @@ void generateTambolaTicket(int ticket[ROWS][COLS]) {
         int zeroCount = 0;
         while (zeroCount < 4) {
             int pos = rand() % COLS;
+            // A random column index pos is generated. rand() % COLS gives a random number between 0 and COLS-1
             if (ticket[row][pos] != 0) {
                 ticket[row][pos] = 0;
                 zeroCount++;

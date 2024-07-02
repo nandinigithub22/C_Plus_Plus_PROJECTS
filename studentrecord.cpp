@@ -40,12 +40,12 @@ public:
                 return;
             }
         }
-        cout << "Student not found!" << endl;
+        cout << "Student not found!! " << endl;
     }
 
     void displayStudents() {
         if (students.empty()) {
-            cout << "No students found!" << endl;
+            cout << "No students found!! " << endl;
         } else {
             for (const auto &student : students) {
                 student.display();

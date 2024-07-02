@@ -1,114 +1,113 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
-#include <ctime>
 #include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
-const int CARD_ROWS = 3;
-const int CARD_COLS = 9;
-const int NUMBERS_PER_ROW = 5;
-const int MAX_NUMBER = 90;
+const int ROWS = 3;
+const int COLS = 9;
+const int TOTAL_NUMBERS = 90;
 
-struct Card {
-    int numbers[CARD_ROWS][CARD_COLS] = {0};
-    bool marked[CARD_ROWS][CARD_COLS] = {false};
-};
-
-void generateCard(Card &card) {
-    srand(time(0));
-    vector<int> numbers(MAX_NUMBER);
-    for (int i = 0; i < MAX_NUMBER; ++i) {
-        numbers[i] = i + 1;
+void getColumnRange(int col, int* range, int& size) {
+    int start = col * 10 + 1;
+    int end = (col + 1) * 10;
+    if (col == 8) end = 90; // Last column goes from 80 to 90
+    size = 0;
+    for (int i = start; i <= end; ++i) {
+        range[size++] = i;
     }
-    random_shuffle(numbers.begin(), numbers.end());
+}
 
-    int index = 0;
-    for (int row = 0; row < CARD_ROWS; ++row) {
-        int count = 0;
-        while (count < NUMBERS_PER_ROW) {
-            int col = rand() % CARD_COLS;
-            if (card.numbers[row][col] == 0) {
-                card.numbers[row][col] = numbers[index++];
-                ++count;
+void generateTambolaTicket(int ticket[ROWS][COLS]) {
+    int colRange[10]; // Maximum 10 numbers in any column range
+    int rangeSize;
+
+    for (int col = 0; col < COLS; ++col) {
+        getColumnRange(col, colRange, rangeSize);
+        random_shuffle(colRange, colRange + rangeSize);
+        for (int row = 0; row < ROWS; ++row) {
+            ticket[row][col] = colRange[row];
+        }
+    }
+
+    for (int row = 0; row < ROWS; ++row) {
+        int zeroCount = 0;
+        while (zeroCount < 4) {
+            int pos = rand() % COLS;
+            if (ticket[row][pos] != 0) {
+                ticket[row][pos] = 0;
+                zeroCount++;
             }
         }
     }
 }
 
-void printCard(const Card &card) {
-    for (int row = 0; row < CARD_ROWS; ++row) {
-        for (int col = 0; col < CARD_COLS; ++col) {
-            if (card.numbers[row][col] != 0) {
-                cout << card.numbers[row][col] << "\t";
+void printTicket(int ticket[ROWS][COLS]) {
+    for (int row = 0; row < ROWS; ++row) {
+        for (int col = 0; col < COLS; ++col) {
+            if (ticket[row][col] == 0) {
+                cout << "   ";
             } else {
-                cout << " \t";
+                cout << ticket[row][col] << " ";
             }
         }
-        cout << "\n";
+        cout << endl;
     }
 }
 
-bool markNumber(Card &card, int number) {
-    for (int row = 0; row < CARD_ROWS; ++row) {
-        for (int col = 0; col < CARD_COLS; ++col) {
-            if (card.numbers[row][col] == number) {
-                card.marked[row][col] = true;
-                return true;
-            }
-        }
+void generateNumberPool(int pool[TOTAL_NUMBERS]) {
+    for (int i = 0; i < TOTAL_NUMBERS; ++i) {
+        pool[i] = i + 1;
     }
-    return false;
 }
 
-bool checkWin(const Card &card) {
-    for (int row = 0; row < CARD_ROWS; ++row) {
-        int markedCount = 0;
-        for (int col = 0; col < CARD_COLS; ++col) {
-            if (card.marked[row][col]) {
-                ++markedCount;
+int callNumber(int pool[TOTAL_NUMBERS], int& poolSize) {
+    if (poolSize == 0) return -1;
+    int index = rand() % poolSize;
+    int number = pool[index];
+    pool[index] = pool[--poolSize];
+    return number;
+}
+
+void markNumber(int ticket[ROWS][COLS], int number) {
+    for (int row = 0; row < ROWS; ++row) {
+        for (int col = 0; col < COLS; ++col) {
+            if (ticket[row][col] == number) {
+                ticket[row][col] = 0;
             }
         }
-        if (markedCount == NUMBERS_PER_ROW) {
-            return true;
+    }
+}
+
+bool checkFullHouse(int ticket[ROWS][COLS]) {
+    for (int row = 0; row < ROWS; ++row) {
+        for (int col = 0; col < COLS; ++col) {
+            if (ticket[row][col] != 0) {
+                return false;
+            }
         }
     }
-    return false;
+    return true;
 }
 
 int main() {
-    Card playerCard;
-    generateCard(playerCard);
+    srand(time(0));
+    int ticket[ROWS][COLS] = {0};
+    int numberPool[TOTAL_NUMBERS];
+    int poolSize = TOTAL_NUMBERS;
 
-    cout << "Your Tambola Card:\n";
-    printCard(playerCard);
+    generateTambolaTicket(ticket);
+    printTicket(ticket);
 
-    vector<int> drawnNumbers(MAX_NUMBER);
-    for (int i = 0; i < MAX_NUMBER; ++i) {
-        drawnNumbers[i] = i + 1;
-    }
-    random_shuffle(drawnNumbers.begin(), drawnNumbers.end());
+    generateNumberPool(numberPool);
 
-    int turn = 0;
-    while (true) {
-        int number = drawnNumbers[turn++];
-        cout << "\nNumber Drawn: " << number << "\n";
-        if (markNumber(playerCard, number)) {
-            cout << "Marked on your card.\n";
-        } else {
-            cout << "Not on your card.\n";
-        }
-
-        if (checkWin(playerCard)) {
-            cout << "Congratulations! You have won the game.\n";
-            break;
-        }
-
-        char choice;
-        cout << "Do you want to continue (y/n)? ";
-        cin >> choice;
-        if (choice == 'n' || choice == 'N') {
+    while (poolSize > 0) {
+        int calledNumber = callNumber(numberPool, poolSize);
+        cout << "Number called: " << calledNumber << endl;
+        markNumber(ticket, calledNumber);
+        if (checkFullHouse(ticket)) {
+            cout << "Full House!" << endl;
             break;
         }
     }

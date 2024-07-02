@@ -2,6 +2,7 @@
 #include <cmath>
 #include <iomanip>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -18,7 +19,7 @@ double tangent(double angle);
 double logarithm(double a);
 long long factorial(int n);
 void decimalToBinary(int n);
-int binaryToDecimal(const string& binary);
+int binaryToDecimal(const string &binary);
 int main()
 {
 
@@ -50,17 +51,25 @@ int main()
 
         switch (choice)
         {
+        case 0:
+            cout << "Exiting...\n";
+            break;
+
         case 1:
+        {
             cout << "Enter two numbers: ";
             cin >> num1 >> num2;
             result = add(num1, num2);
             cout << "Result: " << result << endl;
+        }
             break;
         case 2:
+        {
             cout << "Enter two numbers: ";
             cin >> num1 >> num2;
             result = subtract(num1, num2);
             cout << "Result: " << result << endl;
+        }
             break;
         case 3:
             cout << "Enter two numbers: ";
@@ -111,6 +120,7 @@ int main()
             cout << "Result: " << result << endl;
             break;
         case 11: // New case for factorial
+        {
             int n;
             cout << "Enter a non-negative integer: ";
             cin >> n;
@@ -122,33 +132,38 @@ int main()
             {
                 cout << "Result: " << factorial(n) << endl;
             }
+        }
             break;
         case 12:
+        {
             int nn;
             cout << "Enter a Decimal Number: ";
             cin >> nn;
             decimalToBinary(nn);
             cout << endl;
+        }
             break;
 
         case 13:
 
             // Prompt the user to enter a binary number
+        {
+            string binary;
             cout << "Enter a binary number: ";
             cin >> binary;
 
             // Convert binary to decimal
             int decimal = binaryToDecimal(binary);
-    
+
             // Output the result
             cout << "The decimal equivalent of " << binary << " is " << decimal << endl;
+        }
             break;
 
-        case 0:
-            cout << "Exiting...\n";
-            break;
-        default:
+        
+       default :
             cout << "Invalid choice. Please try again.\n";
+            break;
         }
     } while (choice != 0);
 
@@ -255,14 +270,17 @@ void decimalToBinary(int n)
         std::cout << binaryNum[i];
 }
 
-int binaryToDecimal(const string& binary) {
+int binaryToDecimal(const string &binary)
+{
     int decimal = 0;
     int length = binary.length();
 
     // Iterate over the binary string
-    for (int i = 0; i < length; ++i) {
+    for (int i = 0; i < length; ++i)
+    {
         // If the character is '1', add the corresponding power of 2 to the decimal value
-        if (binary[length - 1 - i] == '1') {
+        if (binary[length - 1 - i] == '1')
+        {
             decimal += pow(2, i);
         }
     }

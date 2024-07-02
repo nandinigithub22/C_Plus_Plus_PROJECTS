@@ -38,7 +38,7 @@ void generateTambolaTicket(int ticket[ROWS][COLS]) {
     for (int row = 0; row < ROWS; ++row) {
         int zeroCount = 0;
         while (zeroCount < 4) {
-            int pos = rand() % COLS;
+            int pos = rand() % COLS; // (randomly chosen)
             // A random column index pos is generated. rand() % COLS gives a random number between 0 and COLS-1
             if (ticket[row][pos] != 0) {
                 ticket[row][pos] = 0;
@@ -61,6 +61,7 @@ void printTicket(int ticket[ROWS][COLS]) {
     }
 }
 
+//The generateNumberPool function is designed to initialize an array called pool with numbers from 1 to 90
 void generateNumberPool(int pool[TOTAL_NUMBERS]) {
     for (int i = 0; i < TOTAL_NUMBERS; ++i) {
         pool[i] = i + 1;

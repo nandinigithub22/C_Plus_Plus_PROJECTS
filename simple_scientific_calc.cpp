@@ -18,6 +18,7 @@ double tangent(double angle);
 double logarithm(double a);
 long long factorial(int n);
 void decimalToBinary(int n);
+int binaryToDecimal(const string& binary);
 int main()
 {
 
@@ -41,6 +42,8 @@ int main()
         cout << "10. Logarithm (base 10)\n";
         cout << "11. Factorial\n";
         cout << "12. Decimal To Binary\n";
+        cout << "13. Binary To Decimal \n";
+
         cout << "0. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
@@ -126,6 +129,19 @@ int main()
             cin >> nn;
             decimalToBinary(nn);
             cout << endl;
+            break;
+
+        case 13:
+
+            // Prompt the user to enter a binary number
+            cout << "Enter a binary number: ";
+            cin >> binary;
+
+            // Convert binary to decimal
+            int decimal = binaryToDecimal(binary);
+    
+            // Output the result
+            cout << "The decimal equivalent of " << binary << " is " << decimal << endl;
             break;
 
         case 0:
@@ -237,4 +253,19 @@ void decimalToBinary(int n)
     // Printing the binary number in reverse order
     for (int i = binaryNum.size() - 1; i >= 0; i--)
         std::cout << binaryNum[i];
+}
+
+int binaryToDecimal(const string& binary) {
+    int decimal = 0;
+    int length = binary.length();
+
+    // Iterate over the binary string
+    for (int i = 0; i < length; ++i) {
+        // If the character is '1', add the corresponding power of 2 to the decimal value
+        if (binary[length - 1 - i] == '1') {
+            decimal += pow(2, i);
+        }
+    }
+
+    return decimal;
 }

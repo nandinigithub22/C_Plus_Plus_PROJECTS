@@ -14,6 +14,10 @@ void getColumnRange(int col, int* range, int& size) {
     int end = (col + 1) * 10;
     if (col == 8) end = 90; // Last column goes from 80 to 90
     size = 0;
+
+    //create a range of numbers for each column in the ticket
+    //Assigns the current value of i to the current position in the range array indicated by size.
+    //Then increments size by 1, so the next value of i will be placed in the next position in the range array.
     for (int i = start; i <= end; ++i) {
         range[size++] = i;
     }

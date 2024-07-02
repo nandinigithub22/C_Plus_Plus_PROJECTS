@@ -67,7 +67,7 @@ void generateNumberPool(int pool[TOTAL_NUMBERS]) {
         pool[i] = i + 1;
     }
 }
-
+//The generateNumberPool function is designed to initialize an array called pool with numbers from 1 to 90
 int callNumber(int pool[TOTAL_NUMBERS], int& poolSize) {
     if (poolSize == 0) return -1;
     int index = rand() % poolSize;

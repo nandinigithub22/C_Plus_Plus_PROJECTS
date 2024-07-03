@@ -17,7 +17,7 @@ public:
     }
 
     void display() {
-        cout << "ID: " << id << ", Name: " << name << ", Age: " << age << endl;
+        cout << "ID : " << id << ", Name : " << name << ", Age : " << age << endl;
     }
 };
 
@@ -70,17 +70,17 @@ int main() {
 
         switch (choice) {
             case 1:
-                cout << "Enter ID: ";
+                cout << "Enter ID : ";
                 cin >> id;
-                cout << "Enter Name: ";
+                cout << "Enter Name : ";
                 cin.ignore();
                 getline(cin, name);
-                cout << "Enter Age: ";
+                cout << "Enter Age : ";
                 cin >> age;
                 srs.addStudent(id, name, age);
                 break;
             case 2:
-                cout << "Enter ID: ";
+                cout << "Enter ID : ";
                 cin >> id;
                 srs.deleteStudent(id);
                 break;

@@ -21,7 +21,7 @@ void showMenu() {
     cout << "3. Orange - 50.80\n";
     cout << "4. Milk - 30.00\n";
     cout << "5. Bread - 20.00\n";
-    cout << "6. Exit\n";
+    cout << "6. Don't Want to Buy \n";
 }
 
 int main() {
@@ -84,7 +84,7 @@ int main() {
              << right << setw(10) << itemTotal << "\n";
     }
 
-    cout << "\nTotal Bill: Rs " << total << "\n";
+    cout << "\nTotal Bill : Rs " << total << "\n";
 
     return 0;
 }

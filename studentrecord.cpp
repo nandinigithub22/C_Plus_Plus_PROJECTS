@@ -91,7 +91,7 @@ int main() {
                 cout << "Exiting..." << endl;
                 return 0;
             default:
-                cout << "Invalid choice! Please try again." << endl;
+                cout << "Invalid Demand! Please try again." << endl;
         }
     }
 

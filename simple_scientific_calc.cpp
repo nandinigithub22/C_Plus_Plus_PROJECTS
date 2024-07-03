@@ -30,7 +30,8 @@ int main()
     cout << "Welcome to my calculator " << endl;
     do
     {
-        cout << "\nScientific Calculator\n";
+        
+        cout << "\nWelcome to Our Scientific Calculator\n";
         cout << "1. Addition\n";
         cout << "2. Subtraction\n";
         cout << "3. Multiplication\n";

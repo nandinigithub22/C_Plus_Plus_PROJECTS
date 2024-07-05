@@ -60,7 +60,7 @@ int main() {
     string name;
 
     while (true) {
-        cout << "\nStudent Record System\n";
+        cout << "\nHere's Student Record System\n";
         cout << "1. Add Student\n";
         cout << "2. Delete Student\n";
         cout << "3. Display Students\n";

@@ -5,7 +5,7 @@ using namespace std;
 void showMenu() {
     cout << "Welcome to the Restaurant!" << endl;
     cout << "Here is our menu:" << endl;
-    cout << "1. Burger - $5.99" << endl;
+    cout << "1. Burger 🍔 - $5.99" << endl;
     cout << "2. Pizza - $8.99" << endl;
     cout << "3. Salad - $4.99" << endl;
     cout << "4. Hotdog - $5.59" << endl;

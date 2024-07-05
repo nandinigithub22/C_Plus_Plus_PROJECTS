@@ -76,8 +76,9 @@ int main() {
 
 
     for (const auto& item : cart) {
-        double itemTotal = item.price * item.quantity;
-        total += itemTotal;
+        double itemTotal = (item.price) * (item.quantity) ;
+        int total = 0;
+        total = total + itemTotal;
         cout << left << setw(10) << item.name
              << right << setw(10) << item.quantity
              << right << setw(10) << item.price

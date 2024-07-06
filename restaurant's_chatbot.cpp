@@ -10,7 +10,7 @@ void showMenu() {
     cout << "3. Salad 🥗 - $4.99" << endl;
     cout << "4. Hotdogs 🌭 - $5.59" << endl;
     cout << "5. Sandwich 🥪 - $9.59" << endl;
-    cout << "6. Maggie - $9.29" << endl;
+    cout << "6. Maggie 🍜 - $9.29" << endl;
     cout << "7. Exit" << endl;
 }
 

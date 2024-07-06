@@ -11,7 +11,12 @@ void showMenu() {
     cout << "4. Hotdogs 🌭 - $5.59" << endl;
     cout << "5. Sandwich 🥪 - $9.59" << endl;
     cout << "6. Maggie 🍜 - $9.29" << endl;
-    cout << "7. Exit" << endl;
+    cout << "7. Pasta 🍝 - $7.49" << endl;
+    cout << "8. Sushi 🍣 - $12.99" << endl;
+    cout << "9. Steak 🥩 - $15.99" << endl;
+    cout << "10. Tacos 🌮 - $6.99" << endl;
+    cout << "11. Ice Cream 🍦 - $3.99" << endl;
+    cout << "12. Exit" << endl;
 }
 
 int main() {
@@ -41,14 +46,29 @@ int main() {
                 break;
             case 4:
                 cout << "You ordered a Hotdog. That will be $5.59." << endl;
-                return 0;
+                break;
             case 5:
                 cout << "You ordered a Sandwich. That will be $9.59." << endl;
-                return 0;
+                break;
             case 6:
-                cout << "You ordered a Maggie. That will be $9.29" << endl;
-                return 0;
+                cout << "You ordered a Maggie. That will be $9.29." << endl;
+                break;
             case 7:
+                cout << "You ordered a Pasta. That will be $7.49." << endl;
+                break;
+            case 8:
+                cout << "You ordered a Sushi. That will be $12.99." << endl;
+                break;
+            case 9:
+                cout << "You ordered a Steak. That will be $15.99." << endl;
+                break;
+            case 10:
+                cout << "You ordered Tacos. That will be $6.99." << endl;
+                break;
+            case 11:
+                cout << "You ordered Ice Cream. That will be $3.99." << endl;
+                break;
+            case 12:
                 cout << "Thank you for visiting! Have a great day!" << endl;
                 return 0;
             default:

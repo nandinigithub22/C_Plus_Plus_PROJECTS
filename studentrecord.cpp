@@ -40,7 +40,7 @@ public:
                 return;
             }
         }
-        cout << "Student not found!! " << endl;
+        cout << "Student not found . Please dont do  " << endl;
     }
 
     void displayStudents() {

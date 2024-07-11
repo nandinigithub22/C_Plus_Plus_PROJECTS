@@ -5,14 +5,14 @@
 
 using namespace std;
 
-class Book {
+class Books {
 public:
     int id;
     string title;
     string author;
     int year;
 
-    Book(int id, string title, string author, int year) {
+    Books(int id, string title, string author, int year) {
         this->id = id;
         this->title = title;
         this->author = author;
@@ -29,7 +29,7 @@ public:
 
 class Library {
 private:
-    vector<Book> books;
+    vector<Books> books;
     int nextId;
 
 public:

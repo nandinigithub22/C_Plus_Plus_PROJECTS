@@ -60,7 +60,7 @@ int main() {
                 cout << "You ordered a Sushi. That will be $12.99." << endl;
                 break;
             case 9:
-                cout << "You ordered a Steak. That will be $15.99." << endl;
+                cout << "You ordered a Steak. That will be $25.99." << endl;
                 break;
             case 10:
                 cout << "You ordered Tacos. That will be $6.99." << endl;

@@ -82,7 +82,7 @@ int main() {
 
     } while (continueOrder == 'y' || continueOrder == 'Y');
 
-    cout << "Thank you for your order, " << name << "! Have a great day!" << endl;
+    cout << "Thank you for your order, " << name << " Have a great day !!" << endl;
 
     return 0;
 }

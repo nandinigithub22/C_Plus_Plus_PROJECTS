@@ -37,7 +37,7 @@ public:
 
     void addBook(string title, string author, int year) {
         books.emplace_back(nextId++, title, author, year);
-        cout << "Book added successfully!" << endl;
+        cout << "Book added successfully!!" << endl;
     }
 
     void deleteBook(int id) {

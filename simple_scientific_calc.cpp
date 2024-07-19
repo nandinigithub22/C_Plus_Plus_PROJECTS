@@ -27,7 +27,7 @@ int main()
     double num1, num2, result;
 
     cout << fixed << setprecision(4); // Set output precision
-    cout << "Welcome to my calculator " << endl;
+    cout << "Welcome to my calculator ! " << endl;
     do
     {
         

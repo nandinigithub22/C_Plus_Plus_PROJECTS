@@ -47,7 +47,7 @@ int main()
         cout << "13. Binary To Decimal \n";
 
         cout << "0. Exit\n";
-        cout << "Enter your choice: ";
+        cout << "Enter your choice : ";
         cin >> choice;
 
         switch (choice)
@@ -58,18 +58,18 @@ int main()
 
         case 1:
         {
-            cout << "Enter two numbers: ";
+            cout << "Enter two numbers : ";
             cin >> num1 >> num2;
             result = add(num1, num2);
-            cout << "Result: " << result << endl;
+            cout << "Result : " << result << endl;
         }
             break;
         case 2:
         {
-            cout << "Enter two numbers: ";
+            cout << "Enter two numbers : ";
             cin >> num1 >> num2;
             result = subtract(num1, num2);
-            cout << "Result: " << result << endl;
+            cout << "Result : " << result << endl;
         }
             break;
         case 3:
